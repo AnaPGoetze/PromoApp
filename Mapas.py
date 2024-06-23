@@ -81,4 +81,3 @@ class Mapas:
     # Função para exibir o mapa com os waypoints (lojas)
     def mostrar_mapa(self):
       return self.mapa
-
