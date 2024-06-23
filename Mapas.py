@@ -1,6 +1,7 @@
 import folium
 from folium.plugins import Geocoder #AntPath
 import pandas as pd
+
 class Mapas:
     def __init__(self, arquivo_excel='pontos_santacruz.xlsx'):
         self.mapa = folium.Map(location=[-29.71886949612006, -52.42644538100079], zoom_start=15)
