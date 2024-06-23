@@ -9,7 +9,7 @@ def menu():
     print("║(3) Listar pontos registrados ║")
     print("║(4) Buscar Waypoint           ║")
     print("║(5) Atualizar Waypoint        ║")
-    print("║(9) {Remover Waypoint}          ║")
+    print("║(9) {Remover Waypoint}        ║")
     print("║(0) Sair                      ║")
     print("╚══════════════════════════════╝")
 
