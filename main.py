@@ -1,4 +1,3 @@
-
 from IPython.display import display #Javascript
 from Mapas import Mapas
 
