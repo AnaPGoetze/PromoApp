@@ -3,7 +3,7 @@ import tkinter as tk
 import webbrowser
 import pandas as pd
 
-# ------------------------/ Código do mapa de Santa Cruz do Sul
+# ------------------------/ Código do mapa de Santa Cruz do Su
 
 engine = create_engine('mysql+msqlconnector://usuario:senha@localhost/database_name')
 
