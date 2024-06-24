@@ -1,4 +1,5 @@
 from tkinter import *
+from tkinter import ttk
 from PIL import Image, ImageTk
 
 
@@ -142,7 +143,7 @@ class aplicativo():
         self.bt_IrAtividades = Button(self.frame_1, text="Ver mais tarde")
         self.bt_IrAtividades.place(relx=0.4, rely=0.88, relwidth=0.2, relheight=0.10)
 
-        self.bt_IrConfig = Button(self.frame_1, text="Explorar")
+        self.bt_IrConfig = Button(self.frame_1, text="Explorar", command=self.explorar)
         self.bt_IrConfig.place(relx=0.8, rely=0.88, relwidth=0.10, relheight=0.10)
 
 
@@ -164,6 +165,60 @@ class aplicativo():
         #Botão cancelar vai fechar a janela
         self.bt_cancelar = Button(self.newWindow, text="Cancelar", command=self.newWindow.destroy)
         self.bt_cancelar.place(relx=0.55, rely=0.85, relwidth=0.40, relheight=0.06)
+
+    #Funcionalidade do botão explorar, o botão explorar vai chamar esta função
+    def explorar(self):
+        # Crie um Frame para o conteúdo da tela
+        self.frame_explorar = Frame(self.root)
+        self.frame_explorar.pack(fill=BOTH, expand=True)
+        self.frame_explorar.config(background="#7120b8")
+
+        self.frame_explorar.pack_forget()
+        self.frame_explorar.pack(fill=BOTH, expand=True)
+
+        #Frame para adicionar conteudo na tela
+        self.frame_2 = Frame(self.frame_explorar, bd=4, bg="#8c17f1", highlightbackground="black", highlightthickness=3)
+        self.frame_2.place(relx=0.1, rely=0.1, relwidth=0.80, relheight=0.80)
+
+        self.lb_titulo = Label(self.frame_2, text="Explorar")
+        self.lb_titulo.place(relx=0.3, rely=0.01, relwidth=0.40, relheight=0.06)
+
+        self.bt_IrHome = Button(self.frame_2, text="Home", command=self.voltarPaginaInicial)
+        self.bt_IrHome.place(relx=0.1, rely=0.88, relwidth=0.2, relheight=0.10)
+
+        self.bt_IrAtividades = Button(self.frame_2, text="Ver mais tarde")
+        self.bt_IrAtividades.place(relx=0.7, rely=0.88, relwidth=0.2, relheight=0.10)
+
+        self.listaPromoExplorar()
+
+
+    def listaPromoExplorar(self):
+        self.lista_promo = ttk.Treeview(self.frame_2, columns=("Local", "Endereço", "Produto", "Preço", "Preço Promocional"), show='headings')
+        self.lista_promo.heading("#1", text="Local")
+        self.lista_promo.heading("#2", text="Endereço")
+        self.lista_promo.heading("#3", text="Produto")
+        self.lista_promo.heading("#4", text="Preço")
+        self.lista_promo.heading("#5", text="Preço Promocional")
+
+        self.lista_promo.column("#1", width=100)
+        self.lista_promo.column("#2", width=100)
+        self.lista_promo.column("#3", width=100)
+        self.lista_promo.column("#4", width=100)
+        self.lista_promo.column("#5", width=100)
+
+        self.lista_promo.place(relx=0.01, rely=0.1, relwidth=0.97, relheight=0.70)
+
+        self.scrollLista = Scrollbar(self.frame_2, orient='vertical')
+        self.lista_promo.configure(yscrollcommand=self.scrollLista.set)
+        self.scrollLista.place(relx=0.98, rely=0.1, relwidth=0.02, relheight=0.70)
+
+
+
+    #O botão home vai voltar para a tela inicial
+    def voltarPaginaInicial(self):
+        self.frame_explorar.pack_forget()
+        self.root.pack(fill=BOTH, expand=True)
+        self.frame_1.pack(fill=BOTH, expand=True)
 
 
     def inserirLogo(self):
