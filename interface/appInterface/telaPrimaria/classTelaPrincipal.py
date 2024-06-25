@@ -1,8 +1,8 @@
-from appInterface.telasSecundarias.AdRemoveSerch.classTelaAdPromo import TelaAdPromo
-from appInterface.telasSecundarias.AdRemoveSerch.classTelaRemPromo import TelaRemPromo
-from appInterface.telasSecundarias.AdRemoveSerch.classTelaPesquisa import telaPesquisa
-from appInterface.telasSecundarias.telasListas.classTelaExplorar import TelaExplorar
-from appInterface.telasSecundarias.telasListas.classTelaVermaistarde import TelaVerMaisTarde
+from interface.appInterface.telasSecundarias.AdRemoveSerch.classTelaAdPromo import TelaAdPromo
+from interface.appInterface.telasSecundarias.AdRemoveSerch.classTelaRemPromo import TelaRemPromo
+from interface.appInterface.telasSecundarias.AdRemoveSerch.classTelaPesquisa import telaPesquisa
+from interface.appInterface.telasSecundarias.telasListas.classTelaExplorar import TelaExplorar
+from interface.appInterface.telasSecundarias.telasListas.classTelaVermaistarde import TelaVerMaisTarde
 from tkinter import *
 
 class TelaPrincipal:
