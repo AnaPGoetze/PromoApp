@@ -42,7 +42,7 @@ class TelaPrincipal:
         self.lb.place(relx=0.1, rely=0.1, relheight=0.8, relwidth=0.8)
 
 
-    ########################################### Janelas Secundarias ##########################################
+    ########################################### Janelas Secundarias ########################################
     # Janelas Secundarias, chamadas pelos botões
     def telaAdPromo(self):
         TelaAdPromo(self.janela)
