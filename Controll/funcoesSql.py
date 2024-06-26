@@ -51,6 +51,19 @@ class funcoesSql:
         conn.commit()
         conn.close()
 
+    def pesquisarNoBanco(self, nome_tabela='temp_data'):
+        conn = sqlite3.connect('C:\\SQLite\\testemapa.db')
+        cursor = conn.cursor()
+
+        cursor.execute(f"SELECT LOCAL, NOME FROM {nome_tabela}")
+        registros = cursor.fetchall()
+
+        print("Resultado: ", registros)
+
+        conn.commit()
+        conn.close()
+
+    #Tem que arrumar
     def listarDadosNoSQLite(nome_tabela='temp_data'):
         conn = sqlite3.connect('C:\\SQLite\\testemapa.db')
         cursor = conn.cursor()
@@ -58,6 +71,7 @@ class funcoesSql:
         cursor.execute(f"SELECT LOCAL, DESCRICAO FROM {nome_tabela}")
         registros = cursor.fetchall()
 
+        conn.commit()
         conn.close()
 
         return registros

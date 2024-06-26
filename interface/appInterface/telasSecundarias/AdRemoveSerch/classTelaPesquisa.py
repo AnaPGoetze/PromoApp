@@ -1,4 +1,5 @@
 from tkinter import *
+from Controll import funcoesSql
 
 class telaPesquisa:
     #Construtor
@@ -25,9 +26,12 @@ class telaPesquisa:
         self.entryPesquisa = Entry(self.janela)
         self.entryPesquisa.place(relx=0.1, rely=0.4, relheight=0.05, relwidth=0.8)
 
-        self.botao = Button(self.janela, text="Pesquisar", command=self.janela.destroy)
+        self.botao = Button(self.janela, text="Pesquisar", command=self.pesquisarNoBanco)
         self.botao.place(relx=0.1, rely=0.8, relheight=0.08, relwidth=0.2)
 
         self.botaoCancelar = Button(self.janela, text="Cancelar", command=self.janela.destroy)
         self.botaoCancelar.place(relx=0.7, rely=0.8, relheight=0.08, relwidth=0.2)
-    
+
+    def pesquisarNoBanco(self):
+        nome = self.entryPesquisa.get()
+        funcoesSql.pesquisarNoBanco(nome)
