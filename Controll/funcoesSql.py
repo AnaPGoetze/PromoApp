@@ -1,7 +1,7 @@
 import pandas as pd
 import sqlite3
 
-# ------------------------/ Funções relaciodas ao banco de dados
+# ------------------------/ Funções relacionadas ao banco de dados
 
 class funcoesSql:
     def criarBancodeDados(self):

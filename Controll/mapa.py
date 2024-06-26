@@ -1,11 +1,11 @@
 import folium
 import webbrowser
-from funcoesSql import *
+from Controll.funcoesSql import *
 
 # ------------------------/ Classe do mapa de Santa Cruz do Sul
 class MapaSantaCruzDoSul:
     def __init__(self):
-        funcoesSql.criarBancodeDados(slf)
+        funcoesSql.criarBancodeDados(self)
 
         # lê os dados do banco de dados
         self.df = pd.read_sql_query("SELECT * FROM temp_data",
