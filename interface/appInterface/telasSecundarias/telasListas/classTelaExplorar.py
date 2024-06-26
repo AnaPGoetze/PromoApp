@@ -1,5 +1,7 @@
 from tkinter import *
 from tkinter import ttk
+from Controll.mapa import MapaSantaCruzDoSul
+
 # Modificação na classe TelaExplorar
 class TelaExplorar:
     #Construtor
@@ -7,8 +9,9 @@ class TelaExplorar:
         self.janela = Toplevel(janela)
         self.janela.title("Explorar")
         self.janela.geometry("700x800")
-        self.listaPromocoes()
+        #self.listaPromocoes()
         self.adicionarTitulo()
+        self.criar_botao_mapa()
 
     #Criar um frame com uma label com o titulo remover promoção
     def adicionarTitulo(self):
@@ -20,6 +23,7 @@ class TelaExplorar:
         self.lb.place(relx=0.08, rely=0.1, relheight=0.8, relwidth=0.9)
 
     #Criar uma tabela com as promoções que estão no banco de dados, para o usuario poder navegar
+    '''
     def listaPromocoes(self):
         self.listaPromo=ttk.Treeview(self.janela, columns=('Local', 'Descrição'), show='headings')
 
@@ -37,6 +41,16 @@ class TelaExplorar:
         self.scrollbar.place(relx=0.9, rely=0.1, relheight=0.8, relwidth=0.02)
 
         self.botoes()
+    '''
+
+    def criar_botao_mapa(self):
+        self.botao_mapa = Button(self.janela, text="Abrir Mapa", command=self.abrir_mapa)
+        self.botao_mapa.place(relx=0.1, rely=0.9, relheight=0.05, relwidth=0.8)
+
+    def abrir_mapa(self):
+        self.mapa = MapaSantaCruzDoSul()
+        self.mapa.open_map()
+
 
     #Adicionar o botão de voltar
     def botoes(self):
