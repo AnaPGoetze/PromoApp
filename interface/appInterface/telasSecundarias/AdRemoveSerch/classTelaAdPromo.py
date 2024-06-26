@@ -1,6 +1,10 @@
 from tkinter import *
 
+from Controll.funcoesSql import funcoesSql
+
+
 class TelaAdPromo:
+    db_funcs = funcoesSql()
     #Construtor
     def __init__(self, janela):
         self.janela = Toplevel(janela)
@@ -25,20 +29,25 @@ class TelaAdPromo:
         self.entryNomeLocal = Entry(self.janela)
         self.entryNomeLocal.place(relx=0.1, rely=0.4, relheight=0.05, relwidth=0.8)
 
-        self.lbDescrição = Label(self.janela, text="Descrição")
-        self.lbDescrição.place(relx=0.1, rely=0.45, relheight=0.05, relwidth=0.8)
-        self.entryDescrição = Entry(self.janela)
-        self.entryDescrição.place(relx=0.1, rely=0.5, relheight=0.05, relwidth=0.8)
+        self.lbDescricao = Label(self.janela, text="Descrição")
+        self.lbDescricao.place(relx=0.1, rely=0.45, relheight=0.05, relwidth=0.8)
+        self.entryDescricao = Entry(self.janela)
+        self.entryDescricao.place(relx=0.1, rely=0.5, relheight=0.05, relwidth=0.8)
 
         self.botoes()
         
     #Criar os botoes para voltar e adicionar
     def botoes(self):
-        self.botao = Button(self.janela, text="Adicionar", command=self.janela.destroy)
-        self.botao.place(relx=0.1, rely=0.8, relheight=0.08, relwidth=0.2)
+        self.botaoAdicionar = Button(self.janela, text="Adicionar", command=self.adicionar)
+        self.botaoAdicionar.place(relx=0.1, rely=0.8, relheight=0.08, relwidth=0.2)
 
         self.botaoCancelar = Button(self.janela, text="Cancelar", command=self.janela.destroy)
         self.botaoCancelar.place(relx=0.7, rely=0.8, relheight=0.08, relwidth=0.2)
 
-
-        
+    def adicionar(self):
+        nome_local = self.entryNomeLocal.get()
+        # Exemplo de valores para latitude e longitude
+        latitude = -23.5505
+        longitude = -46.6333
+        self.db_funcs.inserirDadosNoSQLite(nome_local, latitude, longitude)
+        self.janela.destroy()
