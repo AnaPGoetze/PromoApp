@@ -28,7 +28,7 @@ class TelaPrincipal:
         self.botaoExplorar.place(relx=0.2, rely=0.9, relheight=0.05, relwidth=0.2)
         self.botaoFechar = Button(self.janela, text="Fechar", command=self.janela.destroy)
         self.botaoFechar.place(relx=0.6, rely=0.9, relheight=0.05, relwidth=0.2)
-        self.botaoVerMaisTarde = Button(self.janela, text="Ver mais tarde", command=self.telaVerMaisTarde)
+        self.botaoVerMaisTarde = Button(self.janela, text="Ver Promoções", command=self.telaVerMaisTarde)
         self.botaoVerMaisTarde.place(relx=0.4, rely=0.9, relheight=0.05, relwidth=0.2)
 
     #Inseririr uma frame com uma label com o titulo promo app
