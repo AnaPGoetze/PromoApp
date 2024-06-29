@@ -5,6 +5,8 @@ from interface.appInterface.telasSecundarias.telasListas.classTelaExplorar impor
 from interface.appInterface.telasSecundarias.telasListas.classTelaVermaistarde import TelaVerMaisTarde
 from tkinter import *
 
+#TESTE GUSTAVO
+
 class TelaPrincipal:
     #Construtor
     def __init__(self, janela):
