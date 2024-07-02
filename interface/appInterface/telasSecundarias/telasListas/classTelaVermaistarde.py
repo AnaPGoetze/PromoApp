@@ -1,6 +1,5 @@
 from tkinter import *
 from tkinter import ttk
-from Controll.funcoesSql import *
 
 class TelaVerMaisTarde:
 
@@ -11,7 +10,6 @@ class TelaVerMaisTarde:
         self.janela.geometry("700x800")
         self.listaVermaistarde()
         self.adicionarTitulo()
-        self.listaVermaistarde()
 
     #Criar um frame com uma label com o titulo remover promoção
     def adicionarTitulo(self):
@@ -29,29 +27,19 @@ class TelaVerMaisTarde:
 
     #Adiciona a lista para guardar as promoções que o usuario marcou para ver mais tarde
     def listaVermaistarde(self):
-        self.listaPromo=ttk.Treeview(self.janela, columns=('Local', 'Produto', 'Descricão', 'Valor Desconto', 'Data Final'), show='headings')
+        self.listaPromo=ttk.Treeview(self.janela, columns=('Local', 'Descrição'), show='headings')
 
         self.listaPromo.heading('#1', text='Local')
-        self.listaPromo.heading('#2', text='Produto')
-        self.listaPromo.heading('#3', text='Descricão')
-        self.listaPromo.heading('#4', text='Valor Desconto')
-        self.listaPromo.heading('#5', text='Data Final')
+        self.listaPromo.heading('#2', text='Descrição')
 
         self.listaPromo.column('#1', width=100)
         self.listaPromo.column('#2', width=100)
-        self.listaPromo.column('#3', width=100)
-        self.listaPromo.column('#4', width=100)
-        self.listaPromo.column('#5', width=100)
 
-        self.listaPromo.place(relx=0.1, rely=0.1, relheight=0.8, relwidth=0.8)
+        self.listaPromo.place(relx=0.1, rely=0.1, relheight=0.8, relwidth=0.8)  # Add this line
 
         #Colocar o scrollbar da tabela
         self.scrollbar = Scrollbar(self.janela, orient="vertical", command=self.listaPromo.yview)
         self.listaPromo.configure(yscrollcommand=self.scrollbar.set)
         self.scrollbar.place(relx=0.9, rely=0.1, relheight=0.8, relwidth=0.02)
-
-        registros = funcoesSql.listarDadosNoSQLite()
-        for local, descricao in registros:
-            self.listaPromo.insert("", tk.END, values=(local, descricao))
 
         self.botoes()
