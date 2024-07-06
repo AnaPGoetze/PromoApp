@@ -28,7 +28,7 @@ class TelaPrincipal:
 
 
     def inserirLogo(self):
-        image_path = r'C:\Users\gusta\Downloads\LogoPromoApp.png'
+        image_path = r'D:\PROGRAMAÇÃO\gitPromoApp\interface\appInterface\logoTelaPrincipal\LogoPromoApp.png'
         img = Image.open(image_path)
         # Redimensiona a imagem mantendo a proporção original
         largura, altura = img.size

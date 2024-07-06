@@ -17,7 +17,7 @@ class TelaCliente:
         self.inserirLogo()
 
     def botoesCliente(self):
-        self.botaoEstabelecimento = Button(self.janela, text="Ver Promoções")
+        self.botaoEstabelecimento = Button(self.janela, text="Ver Mapa")
         self.botaoEstabelecimento.place(relx=0.5, rely=0.35, relheight=0.07, relwidth=0.4, anchor="center")
         self.botaoEstabelecimento = Button(self.janela, text="Ver mais tarde", command=self.telaVerMaisTarde)
         self.botaoEstabelecimento.place(relx=0.5, rely=0.47, relheight=0.07, relwidth=0.4, anchor="center")
@@ -29,7 +29,7 @@ class TelaCliente:
         self.botaoFechar.place(relx=0.5, rely=0.83, relheight=0.07, relwidth=0.4, anchor="center")
 
     def inserirLogo(self):
-        image_path = r'C:\Users\gusta\Downloads\LogoPromoApp.png'
+        image_path = r'D:\PROGRAMAÇÃO\gitPromoApp\interface\appInterface\logoTelaPrincipal\LogoPromoApp.png'
         img = Image.open(image_path)
         # Redimensiona a imagem mantendo a proporção original
         largura, altura = img.size
