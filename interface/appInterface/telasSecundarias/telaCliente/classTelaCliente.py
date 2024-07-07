@@ -30,8 +30,7 @@ class TelaCliente:
         self.botaoFechar.place(relx=0.5, rely=0.83, relheight=0.07, relwidth=0.4, anchor="center")
 
     def inserirLogo(self):
-        script_dir = os.path.dirname(__file__)
-        image_path = os.path.join(script_dir, 'interface', 'appInterface', 'logoTelaPrincipal', 'LogoPromoApp.png')
+        image_path = r'D:\PROGRAMAÇÃO\gitPromoApp\interface\appInterface\logoTelaPrincipal\LogoPromoApp.png'
         img = Image.open(image_path)
         # Redimensiona a imagem mantendo a proporção original
         largura, altura = img.size
