@@ -37,3 +37,12 @@ class Planilha:
         for row in self.ws.iter_rows(min_row=2):
             copia.append([row[0].value, row[1].value, row[2].value, row[3].value, row[4].value])
         return copia
+
+    #Def para procurar uma promo na planilha, o usuario vai digitar o nome do produto,e todas as linhas que tiverem o produto ou parte do produto, as linhas todas vão ser copiadas e inseridas na treeview
+    def procurarPromoOupartePlanilha(self, nome_produto):
+        copia = []
+        for row in self.ws.iter_rows(min_row=2):
+            if nome_produto in row[1].value:
+                copia.append([row[0].value, row[1].value, row[2].value, row[3].value, row[4].value])
+        return copia
+
