@@ -21,13 +21,15 @@ class TelaExplorar:
 
     #Criar uma tabela com as promoções que estão no banco de dados, para o usuario poder navegar
     def listaPromocoes(self):
-        self.listaPromo=ttk.Treeview(self.janela, columns=('Local', 'Descrição'), show='headings')
+        self.listaPromo=ttk.Treeview(self.janela, columns=('Local', 'Produto', 'Desconto'), show='headings')
 
         self.listaPromo.heading('#1', text='Local')
-        self.listaPromo.heading('#2', text='Descrição')
+        self.listaPromo.heading('#2', text='Produto')
+        self.listaPromo.heading('#3', text='Desconto')
 
         self.listaPromo.column('#1', width=100)
         self.listaPromo.column('#2', width=100)
+        self.listaPromo.column('#3', width=40)
 
         self.listaPromo.place(relx=0.1, rely=0.1, relheight=0.8, relwidth=0.8)  # Add this line
 

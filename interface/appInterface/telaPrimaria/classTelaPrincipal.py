@@ -3,6 +3,7 @@ from interface.appInterface.telasSecundarias.telaCliente.classTelaCliente import
 from tkinter import *
 import tkinter as tk
 from PIL import ImageTk, Image
+import os
 
 class TelaPrincipal:
     #Construtor
@@ -28,7 +29,7 @@ class TelaPrincipal:
 
 
     def inserirLogo(self):
-        image_path = r'D:\PROGRAMAÇÃO\gitPromoApp\interface\appInterface\logoTelaPrincipal\LogoPromoApp.png'
+        image_path = '../PromoApp/interface/appInterface/logoTelaPrincipal/LogoPromoApp.png'
         img = Image.open(image_path)
         # Redimensiona a imagem mantendo a proporção original
         largura, altura = img.size
@@ -41,7 +42,6 @@ class TelaPrincipal:
         logo_label = tk.Label(self.janela, image = tk_img, bd=0)
         logo_label.image = tk_img  # Manter uma referência à imagem para evitar que seja destruída
         logo_label.pack(pady=40)  # Ajusta o pady conforme necessário
-
 
     ########################################### Janelas Secundarias ########################################
     # Janelas Secundarias, chamadas pelos botões

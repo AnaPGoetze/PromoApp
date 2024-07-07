@@ -18,19 +18,29 @@ class TelaAdPromo:
 
     def criarWidget(self):
         self.lbNomeLocal = Label(self.janela, text="Nome do Local")
-        self.lbNomeLocal.place(relx=0.1, rely=0.35, relheight=0.05, relwidth=0.8)
+        self.lbNomeLocal.place(relx=0.1, rely=0.2, relheight=0.05, relwidth=0.8)
         self.entryNomeLocal = Entry(self.janela)
-        self.entryNomeLocal.place(relx=0.1, rely=0.4, relheight=0.05, relwidth=0.8)
+        self.entryNomeLocal.place(relx=0.1, rely=0.25, relheight=0.05, relwidth=0.8)
+
+        self.lbNomeProduto = Label(self.janela, text="Nome do Produto")
+        self.lbNomeProduto.place(relx=0.1, rely=0.3, relheight=0.05, relwidth=0.8)
+        self.entryNomeProduto = Entry(self.janela)
+        self.entryNomeProduto.place(relx=0.1, rely=0.35, relheight=0.05, relwidth=0.8)
+
+        self.lbDescontoProduto = Label(self.janela, text="Desconto do Produto")
+        self.lbDescontoProduto.place(relx=0.1, rely=0.4, relheight=0.05, relwidth=0.8)
+        self.entryDescontoProduto = Entry(self.janela)
+        self.entryDescontoProduto.place(relx=0.1, rely=0.45, relheight=0.05, relwidth=0.8)
 
         self.lbLongitude = Label(self.janela, text="Longitude")
-        self.lbLongitude.place(relx=0.1, rely=0.45, relheight=0.05, relwidth=0.8)
+        self.lbLongitude.place(relx=0.1, rely=0.5, relheight=0.05, relwidth=0.8)
         self.entryLongitude = Entry(self.janela)
-        self.entryLongitude.place(relx=0.1, rely=0.5, relheight=0.05, relwidth=0.8)
+        self.entryLongitude.place(relx=0.1, rely=0.55, relheight=0.05, relwidth=0.8)
 
         self.lbLatitude = Label(self.janela, text="Latitude")
-        self.lbLatitude.place(relx=0.1, rely=0.55, relheight=0.05, relwidth=0.8)
+        self.lbLatitude.place(relx=0.1, rely=0.6, relheight=0.05, relwidth=0.8)
         self.entryLatitude = Entry(self.janela)
-        self.entryLatitude.place(relx=0.1, rely=0.6, relheight=0.05, relwidth=0.8)
+        self.entryLatitude.place(relx=0.1, rely=0.65, relheight=0.05, relwidth=0.8)
 
         self.botoes()
 
@@ -43,5 +53,5 @@ class TelaAdPromo:
 
     def adicionar(self):
         planilha = Planilha()
-        planilha.inserirPlanilha(self.entryNomeLocal.get(), self.entryLatitude.get(), self.entryLongitude.get())
+        planilha.inserirPromocaoPlanilha(self.entryNomeLocal.get(), self.entryNomeProduto.get(), self.entryDescontoProduto.get(), self.entryLatitude.get(), self.entryLongitude.get())
         self.janela.destroy()

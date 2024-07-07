@@ -9,11 +9,11 @@ class Planilha:
             self.wb = openpyxl.Workbook()
             self.ws = self.wb.active
             self.ws.title = "Promos"
-            self.ws.append(["Local", "Latitude", "Longitude"])
+            self.ws.append(["Local", "Produto", "Desconto", "Latitude", "Longitude"])
             self.wb.save("promocoes.xlsx")
 
-    def inserirPlanilha(self, nome_local, latitude, longitude):
-        self.ws.append([nome_local, latitude, longitude])
+    def inserirPromocaoPlanilha(self, nome_local, nome_produto, desconto, latitude, longitude):
+        self.ws.append([nome_local, nome_produto, desconto, latitude, longitude])
         self.wb.save("promocoes.xlsx")
 
 

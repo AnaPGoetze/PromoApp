@@ -4,6 +4,7 @@ from interface.appInterface.telasSecundarias.telasListas.classTelaPesquisa impor
 from tkinter import *
 import tkinter as tk
 from PIL import ImageTk, Image
+import os
 
 class TelaCliente:
 
@@ -29,7 +30,8 @@ class TelaCliente:
         self.botaoFechar.place(relx=0.5, rely=0.83, relheight=0.07, relwidth=0.4, anchor="center")
 
     def inserirLogo(self):
-        image_path = r'D:\PROGRAMAÇÃO\gitPromoApp\interface\appInterface\logoTelaPrincipal\LogoPromoApp.png'
+        script_dir = os.path.dirname(__file__)
+        image_path = os.path.join(script_dir, 'interface', 'appInterface', 'logoTelaPrincipal', 'LogoPromoApp.png')
         img = Image.open(image_path)
         # Redimensiona a imagem mantendo a proporção original
         largura, altura = img.size
