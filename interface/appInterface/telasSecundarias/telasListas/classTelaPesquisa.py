@@ -35,7 +35,7 @@ class TelaPesquisa:
 
 # Criar labels e entry para inserir os dados da promoção a ser pesquisada
     def criarWidget(self):
-        self.lbPesquisa = Label(self.janela, text="Digite o produto que procurás:")
+        self.lbPesquisa = Label(self.janela, text="Digite o produto que procura:")
         self.lbPesquisa.place(relx=0.1, rely=0.15, relheight=0.05, relwidth=0.8)
         self.entryPesquisa = Entry(self.janela)
         self.entryPesquisa.place(relx=0.1, rely=0.2, relheight=0.05, relwidth=0.8)
