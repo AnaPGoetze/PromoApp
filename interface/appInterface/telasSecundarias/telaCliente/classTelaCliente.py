@@ -1,9 +1,12 @@
 from interface.appInterface.telasSecundarias.telasListas.classTelaExplorar import TelaExplorar
-from interface.appInterface.telasSecundarias.telasListas.classTelaVermaistarde import TelaVerMaisTarde
 from interface.appInterface.telasSecundarias.telasListas.classTelaPesquisa import TelaPesquisa
 from tkinter import *
 import tkinter as tk
 from PIL import ImageTk, Image
+import os
+from Controll.mapa import Mapa
+import folium
+import webbrowser
 
 class TelaCliente:
 
@@ -16,20 +19,29 @@ class TelaCliente:
         self.botoesCliente()
         self.inserirLogo()
 
+
     def botoesCliente(self):
-        self.botaoEstabelecimento = Button(self.janela, text="Ver Promoções")
-        self.botaoEstabelecimento.place(relx=0.5, rely=0.35, relheight=0.07, relwidth=0.4, anchor="center")
-        self.botaoEstabelecimento = Button(self.janela, text="Ver mais tarde", command=self.telaVerMaisTarde)
-        self.botaoEstabelecimento.place(relx=0.5, rely=0.47, relheight=0.07, relwidth=0.4, anchor="center")
+        self.botaoEstabelecimento = Button(self.janela, text="Ver Mapa", command=self.mostrar_mapa)
+        self.botaoEstabelecimento.place(relx=0.5, rely=0.4, relheight=0.07, relwidth=0.4, anchor="center")
+
+
         self.botaoCliente = Button(self.janela, text="Explorar", command=self.telaExplorar)
-        self.botaoCliente.place(relx=0.5, rely=0.59, relheight=0.07, relwidth=0.4, anchor="center")
+        self.botaoCliente.place(relx=0.5, rely=0.525, relheight=0.07, relwidth=0.4, anchor="center")
+
         self.botaoCliente = Button(self.janela, text="Pesquisar", command=self.telaPesquisar)
-        self.botaoCliente.place(relx=0.5, rely=0.71, relheight=0.07, relwidth=0.4, anchor="center")
+        self.botaoCliente.place(relx=0.5, rely=0.65, relheight=0.07, relwidth=0.4, anchor="center")
+
         self.botaoFechar = Button(self.janela, text="Voltar", command=self.janela.destroy)
-        self.botaoFechar.place(relx=0.5, rely=0.83, relheight=0.07, relwidth=0.4, anchor="center")
+        self.botaoFechar.place(relx=0.5, rely=0.775, relheight=0.07, relwidth=0.4, anchor="center")
+
+    # Função para exibir o mapa
+    def mostrar_mapa(self):
+        # copiar o endereço absoluto
+        url_mapa = r"C:\Users\Lucas\PycharmProjects\PromoApp\interface\appInterface\telaPrimaria\mapa_promocoes.html"
+        webbrowser.open(url_mapa, new=2)
 
     def inserirLogo(self):
-        image_path = r'C:\Users\gusta\Downloads\LogoPromoApp.png'
+        image_path = r'C:\Users\Lucas\PycharmProjects\PromoApp\interface\appInterface\logoTelaPrincipal\LogoPromoApp.png'
         img = Image.open(image_path)
         # Redimensiona a imagem mantendo a proporção original
         largura, altura = img.size
@@ -45,9 +57,6 @@ class TelaCliente:
 
     def telaExplorar(self):
         TelaExplorar(self.janela)
-
-    def telaVerMaisTarde(self):
-        TelaVerMaisTarde(self.janela)
 
     def telaPesquisar(self):
         TelaPesquisa(self.janela)

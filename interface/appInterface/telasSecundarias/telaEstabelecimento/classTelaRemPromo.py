@@ -1,4 +1,6 @@
 from tkinter import *
+#importar a função de remover promo da planilha.py
+from Controll.planilha import Planilha
 
 class TelaRemPromo:
     #Construtor
@@ -34,8 +36,16 @@ class TelaRemPromo:
 
     #Criar os botoes para voltar e remover
     def botoes(self):
-        self.botao = Button(self.janela, text="Remover", command=self.janela.destroy)
+        #O botao remover vai ter o command, utilizando a def de remover promo
+        self.botao = Button(self.janela, text="Remover", command=self.removerPromo)
         self.botao.place(relx=0.1, rely=0.8, relheight=0.08, relwidth=0.2)
 
         self.botaoCancelar = Button(self.janela, text="Cancelar", command=self.janela.destroy)
         self.botaoCancelar.place(relx=0.7, rely=0.8, relheight=0.08, relwidth=0.2)
+
+    def removerPromo(self):
+        nomeLocal = self.entryNomeLocal.get()
+        nomeProduto = self.entryNomeProduto.get()
+        p = Planilha()
+        p.removerPromoPlanilha(nomeLocal, nomeProduto)
+        self.janela.destroy()

@@ -1,33 +1,58 @@
-import folium
+# importação das bibliotecas
 import webbrowser
-from Controll.funcoesSql import *
+import folium
+from Controll.planilha import Planilha
 
-# ------------------------/ Classe do mapa de Santa Cruz do Sul
-class MapaSantaCruzDoSul:
+# classe mapa
+class Mapa:
+
+    # construtor
     def __init__(self):
-        funcoesSql.criarBancodeDados(self)
-
-        # lê os dados do banco de dados
-        self.df = pd.read_sql_query("SELECT * FROM temp_data",
-                                    sqlite3.connect('C:\\SQLite\\testemapa.db'))
-
-        # setta a posição inicial e o zoom
+        # Configuração da localização inicial e zoom
         self.mapa = folium.Map(location=[-29.71886949612006, -52.42644538100079], zoom_start=15)
+        self.planilha = Planilha()
+        self.adicionar_marcadores()
 
-        # configuração dos marcadores
-        for index, row in self.df.iterrows():
-            popup = "<b>" + row['LOCAL'] + "</b><br>" + "<u>" + row['DESCRICAO'] + "</u>"
+    # função para adicionar os marcadores
+    def adicionar_marcadores(self):
+        ws = self.planilha.lerPlanilha()
+
+        # Adicionar prints para depuração
+        print("Lendo dados da planilha:")
+        for row in ws.iter_rows(min_row=2, values_only=True):
+            nome_local = row[0]
+            nome_produto = row[1]
+            desconto = row[2]
+            latitude = row[3]
+            longitude = row[4]
+
+            # para depuração, remover posteriormente
+            #print(f"Nome Local: {nome_local}, Produto: {nome_produto}, Desconto: {desconto}, Latitude: {latitude}, Longitude: {longitude}")
+
+            # ele pega algumas cédulas a mais, mas isso não influencia
+            #if latitude is None or longitude is None:
+                #print("Latitude ou Longitude inválida")
+                #continue
+
+            # Configuração do texto
+            html = f"""
+            <strong>{nome_local}</strong><br>
+            Produto: {nome_produto}<br>
+            Desconto: {desconto}
+            """
+            popup = folium.Popup(html, max_width=250)
 
             # Configuração dos marcadores
-            folium.Marker(
-                location=[row['LATITUDE'], row['LONGITUDE']],
+            marker = folium.Marker(
+                [latitude, longitude],
                 popup=popup,
-                icon=folium.Icon(color='purple', icon='info-sign')
-            ).add_to(self.mapa)
+                icon=folium.Icon(color='blue', icon='info-sign')
+            )
+            marker.add_to(self.mapa)
 
-         # Salva o mapa em html
-        self.mapa.save("mapa_santacruz.html")
+            # para depuração, remover posteriormente
+            #print(f"Marcador adicionado: {marker}")
 
-    # ------------------------/ Abre o mapa em html em uma nova guia no navegador
-    def open_map(self):
-        webbrowser.open_new_tab("mapa_santacruz.html")
+    # função para salvar o mapa em html
+    def salvar_mapa(self, nome_arquivo='mapa_promocoes.html'):
+        self.mapa.save(nome_arquivo)
