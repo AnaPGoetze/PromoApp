@@ -4,6 +4,9 @@ from tkinter import *
 import tkinter as tk
 from PIL import ImageTk, Image
 import os
+from Controll.mapa import Mapa
+import folium
+import webbrowser
 
 class TelaCliente:
 
@@ -16,9 +19,11 @@ class TelaCliente:
         self.botoesCliente()
         self.inserirLogo()
 
+
     def botoesCliente(self):
-        self.botaoEstabelecimento = Button(self.janela, text="Ver Mapa")
+        self.botaoEstabelecimento = Button(self.janela, text="Ver Mapa", command=self.mostrar_mapa)
         self.botaoEstabelecimento.place(relx=0.5, rely=0.4, relheight=0.07, relwidth=0.4, anchor="center")
+
 
         self.botaoCliente = Button(self.janela, text="Explorar", command=self.telaExplorar)
         self.botaoCliente.place(relx=0.5, rely=0.525, relheight=0.07, relwidth=0.4, anchor="center")
@@ -29,8 +34,14 @@ class TelaCliente:
         self.botaoFechar = Button(self.janela, text="Voltar", command=self.janela.destroy)
         self.botaoFechar.place(relx=0.5, rely=0.775, relheight=0.07, relwidth=0.4, anchor="center")
 
+    # Função para exibir o mapa
+    def mostrar_mapa(self):
+        # copiar o endereço absoluto
+        url_mapa = r"C:\Users\Lucas\PycharmProjects\PromoApp\interface\appInterface\telaPrimaria\mapa_promocoes.html"
+        webbrowser.open(url_mapa, new=2)
+
     def inserirLogo(self):
-        image_path = r'D:\PROGRAMAÇÃO\gitPromoApp\interface\appInterface\logoTelaPrincipal\LogoPromoApp.png'
+        image_path = r'C:\Users\Lucas\PycharmProjects\PromoApp\interface\appInterface\logoTelaPrincipal\LogoPromoApp.png'
         img = Image.open(image_path)
         # Redimensiona a imagem mantendo a proporção original
         largura, altura = img.size
