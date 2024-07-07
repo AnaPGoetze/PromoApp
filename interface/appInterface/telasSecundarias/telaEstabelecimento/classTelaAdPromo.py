@@ -32,15 +32,15 @@ class TelaAdPromo:
         self.entryDescontoProduto = Entry(self.janela)
         self.entryDescontoProduto.place(relx=0.1, rely=0.45, relheight=0.05, relwidth=0.8)
 
-        self.lbLongitude = Label(self.janela, text="Longitude")
-        self.lbLongitude.place(relx=0.1, rely=0.5, relheight=0.05, relwidth=0.8)
-        self.entryLongitude = Entry(self.janela)
-        self.entryLongitude.place(relx=0.1, rely=0.55, relheight=0.05, relwidth=0.8)
-
         self.lbLatitude = Label(self.janela, text="Latitude")
-        self.lbLatitude.place(relx=0.1, rely=0.6, relheight=0.05, relwidth=0.8)
+        self.lbLatitude.place(relx=0.1, rely=0.5, relheight=0.05, relwidth=0.8)
         self.entryLatitude = Entry(self.janela)
-        self.entryLatitude.place(relx=0.1, rely=0.65, relheight=0.05, relwidth=0.8)
+        self.entryLatitude.place(relx=0.1, rely=0.55, relheight=0.05, relwidth=0.8)
+
+        self.lbLongitude = Label(self.janela, text="Longitude")
+        self.lbLongitude.place(relx=0.1, rely=0.6, relheight=0.05, relwidth=0.8)
+        self.entryLongitude = Entry(self.janela)
+        self.entryLongitude.place(relx=0.1, rely=0.65, relheight=0.05, relwidth=0.8)
 
         self.botoes()
 
