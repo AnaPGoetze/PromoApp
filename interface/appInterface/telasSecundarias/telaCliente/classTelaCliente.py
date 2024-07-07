@@ -1,5 +1,4 @@
 from interface.appInterface.telasSecundarias.telasListas.classTelaExplorar import TelaExplorar
-from interface.appInterface.telasSecundarias.telasListas.classTelaVermaistarde import TelaVerMaisTarde
 from interface.appInterface.telasSecundarias.telasListas.classTelaPesquisa import TelaPesquisa
 from tkinter import *
 import tkinter as tk
@@ -19,15 +18,16 @@ class TelaCliente:
 
     def botoesCliente(self):
         self.botaoEstabelecimento = Button(self.janela, text="Ver Mapa")
-        self.botaoEstabelecimento.place(relx=0.5, rely=0.35, relheight=0.07, relwidth=0.4, anchor="center")
-        self.botaoEstabelecimento = Button(self.janela, text="Ver mais tarde", command=self.telaVerMaisTarde)
-        self.botaoEstabelecimento.place(relx=0.5, rely=0.47, relheight=0.07, relwidth=0.4, anchor="center")
+        self.botaoEstabelecimento.place(relx=0.5, rely=0.4, relheight=0.07, relwidth=0.4, anchor="center")
+
         self.botaoCliente = Button(self.janela, text="Explorar", command=self.telaExplorar)
-        self.botaoCliente.place(relx=0.5, rely=0.59, relheight=0.07, relwidth=0.4, anchor="center")
+        self.botaoCliente.place(relx=0.5, rely=0.525, relheight=0.07, relwidth=0.4, anchor="center")
+
         self.botaoCliente = Button(self.janela, text="Pesquisar", command=self.telaPesquisar)
-        self.botaoCliente.place(relx=0.5, rely=0.71, relheight=0.07, relwidth=0.4, anchor="center")
+        self.botaoCliente.place(relx=0.5, rely=0.65, relheight=0.07, relwidth=0.4, anchor="center")
+
         self.botaoFechar = Button(self.janela, text="Voltar", command=self.janela.destroy)
-        self.botaoFechar.place(relx=0.5, rely=0.83, relheight=0.07, relwidth=0.4, anchor="center")
+        self.botaoFechar.place(relx=0.5, rely=0.775, relheight=0.07, relwidth=0.4, anchor="center")
 
     def inserirLogo(self):
         image_path = r'D:\PROGRAMAÇÃO\gitPromoApp\interface\appInterface\logoTelaPrincipal\LogoPromoApp.png'
@@ -46,9 +46,6 @@ class TelaCliente:
 
     def telaExplorar(self):
         TelaExplorar(self.janela)
-
-    def telaVerMaisTarde(self):
-        TelaVerMaisTarde(self.janela)
 
     def telaPesquisar(self):
         TelaPesquisa(self.janela)
