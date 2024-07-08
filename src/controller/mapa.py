@@ -1,7 +1,9 @@
 # importação das bibliotecas
-import webbrowser
 import folium
-from Controll.planilha import Planilha
+
+from src.controller.planilha import Planilha
+from src.utils.path_util import path
+
 
 # classe mapa
 class Mapa:
@@ -27,12 +29,12 @@ class Mapa:
             longitude = row[4]
 
             # para depuração, remover posteriormente
-            #print(f"Nome Local: {nome_local}, Produto: {nome_produto}, Desconto: {desconto}, Latitude: {latitude}, Longitude: {longitude}")
+            # print(f"Nome Local: {nome_local}, Produto: {nome_produto}, Desconto: {desconto}, Latitude: {latitude}, Longitude: {longitude}")
 
             # ele pega algumas cédulas a mais, mas isso não influencia
-            #if latitude is None or longitude is None:
-                #print("Latitude ou Longitude inválida")
-                #continue
+            # if latitude is None or longitude is None:
+            # print("Latitude ou Longitude inválida")
+            # continue
 
             # Configuração do texto
             html = f"""
@@ -51,8 +53,8 @@ class Mapa:
             marker.add_to(self.mapa)
 
             # para depuração, remover posteriormente
-            #print(f"Marcador adicionado: {marker}")
+            # print(f"Marcador adicionado: {marker}")
 
     # função para salvar o mapa em html
-    def salvar_mapa(self, nome_arquivo='mapa_promocoes.html'):
+    def salvar_mapa(self, nome_arquivo=path.mapa):
         self.mapa.save(nome_arquivo)
