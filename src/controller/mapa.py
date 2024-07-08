@@ -13,7 +13,6 @@ class Mapa:
         # Configuração da localização inicial e zoom
         self.mapa = folium.Map(location=[-29.71886949612006, -52.42644538100079], zoom_start=15)
         self.planilha = Planilha()
-        self.adicionar_marcadores()
 
     # função para adicionar os marcadores
     def adicionar_marcadores(self):
@@ -28,13 +27,13 @@ class Mapa:
             latitude = row[3]
             longitude = row[4]
 
+            # Verificar se todos os campos necessários estão presentes
+            if None in (nome_local, nome_produto, desconto, latitude, longitude):
+                # print(f"Dados incompletos: {row}")
+                continue
+
             # para depuração, remover posteriormente
             # print(f"Nome Local: {nome_local}, Produto: {nome_produto}, Desconto: {desconto}, Latitude: {latitude}, Longitude: {longitude}")
-
-            # ele pega algumas cédulas a mais, mas isso não influencia
-            # if latitude is None or longitude is None:
-            # print("Latitude ou Longitude inválida")
-            # continue
 
             # Configuração do texto
             html = f"""
@@ -58,3 +57,12 @@ class Mapa:
     # função para salvar o mapa em html
     def salvar_mapa(self, nome_arquivo=path.mapa):
         self.mapa.save(nome_arquivo)
+
+    # função para atualizar o mapa
+    def atualizar_mapa(self):
+        # reinicializa o mapa
+        self.mapa = folium.Map(location=[-29.71886949612006, -52.42644538100079], zoom_start=15)
+        # adiciona marcadores novamente
+        self.adicionar_marcadores()
+        # salva o mapa atualizado
+        self.salvar_mapa()

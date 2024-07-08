@@ -9,6 +9,7 @@ from PIL import ImageTk, Image
 from src.utils.path_util import path
 from src.view.telasListas.classTelaExplorar import TelaExplorar
 from src.view.telasListas.classTelaPesquisa import TelaPesquisa
+from src.controller.mapa import Mapa
 
 
 class TelaCliente:
@@ -37,7 +38,9 @@ class TelaCliente:
 
     # Função para exibir o mapa
     def mostrar_mapa(self):
-        # copiar o endereço absoluto
+        mapa = Mapa()
+        mapa.atualizar_mapa()
+        print("Mapa atualizado e salvo com sucesso.")
         webbrowser.open(path.mapa, new=2)
 
     def inserirLogo(self):
