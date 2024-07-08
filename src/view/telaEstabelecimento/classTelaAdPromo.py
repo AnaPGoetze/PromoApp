@@ -1,5 +1,7 @@
 from tkinter import *
-from Controll.planilha import Planilha
+
+from src.controller.planilha import Planilha
+
 
 class TelaAdPromo:
     def __init__(self, janela):
@@ -53,5 +55,5 @@ class TelaAdPromo:
 
     def adicionar(self):
         planilha = Planilha()
-        planilha.inserirPromocaoPlanilha(self.entryNomeLocal.get(), self.entryNomeProduto.get(), self.entryDescontoProduto.get(), self.entryLatitude.get(), self.entryLongitude.get())
+        planilha.inserir_promocao_planilha(self.entryNomeLocal.get(), self.entryNomeProduto.get(), self.entryDescontoProduto.get(), self.entryLatitude.get(), self.entryLongitude.get())
         self.janela.destroy()

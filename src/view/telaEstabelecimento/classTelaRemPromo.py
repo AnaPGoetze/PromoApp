@@ -1,6 +1,7 @@
 from tkinter import *
-#importar a função de remover promo da planilha.py
-from Controll.planilha import Planilha
+
+from src.controller.planilha import Planilha
+
 
 class TelaRemPromo:
     #Construtor
