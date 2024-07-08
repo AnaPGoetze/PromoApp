@@ -45,6 +45,8 @@ class Planilha:
     def procurarPromoOupartePlanilha(self, nome_produto):
         copia = []
         for row in self.ws.iter_rows(min_row=2):
+            if row[1].value is None:
+                continue
             if nome_produto in row[1].value:
                 copia.append([row[0].value, row[1].value, row[2].value, row[3].value, row[4].value])
         return copia
