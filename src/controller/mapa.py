@@ -10,7 +10,7 @@ class Mapa:
 
     # construtor
     def __init__(self):
-        # Configuração da localização inicial e zoom
+        # configuração da localização inicial e zoom
         self.mapa = folium.Map(location=[-29.71886949612006, -52.42644538100079], zoom_start=15)
         self.planilha = Planilha()
 
@@ -18,8 +18,8 @@ class Mapa:
     def adicionar_marcadores(self):
         ws = self.planilha.lerPlanilha()
 
-        # Adicionar prints para depuração
-        print("Lendo dados da planilha:")
+        # prints para depuração
+        # print("Lendo dados da planilha:")
         for row in ws.iter_rows(min_row=2, values_only=True):
             nome_local = row[0]
             nome_produto = row[1]
@@ -27,7 +27,7 @@ class Mapa:
             latitude = row[3]
             longitude = row[4]
 
-            # Verificar se todos os campos necessários estão presentes
+            # verifica se todos os campos necessários estão presentes
             if None in (nome_local, nome_produto, desconto, latitude, longitude):
                 # print(f"Dados incompletos: {row}")
                 continue
